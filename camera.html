@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Media</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: monospace;
+        }
+        body{
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        h1{
+            margin-bottom: 10px;
+        }
+        video{
+            width: 90vw;
+            height: 80vh;
+            border: 5px solid black;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>real time user media</h1>
+    <video src="" muted autoplay></video>
+
+    <script>
+
+        const video = document.querySelector("video")
+
+       window.navigator.mediaDevices.getUserMedia({
+        video : true
+       }).then (stream => {
+        video.srcObject = stream
+       }).catch(error => {
+        alert(error)
+       })
+
+
+    </script>
+</body>
+</html>
